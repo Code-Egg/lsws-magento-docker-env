@@ -82,8 +82,13 @@ set_phpmemory(){
         php -i | grep "memory_limit"
         PHP_INI=$(docker-compose exec litespeed su -c "php -i | grep 'Loaded Configuration File' | cut -d' ' -f5 " | tr -d '\r')
         PHP_INI1=$(docker-compose exec litespeed su -c "php -i | grep 'Loaded Configuration File' | cut -d' ' -f5 " | tr -d '\r')
+        PHP_INI3=$(docker-compose exec litespeed su -c "php -i | grep 'Loaded Configuration File' | cut -d' ' -f5 " | tr -d '\r')
+        PHP_INI4=$(docker-compose exec litespeed su -c "php -i | grep 'Loaded Configuration File' | cut -d' ' -f5 " | tr -d '\r')
+
         echo "pp: ${PHP_INI}"
         echo "pp1: ${PHP_INI1}"
+        echo "pp3: ${PHP_INI3}"
+        echo "pp4: ${PHP_INI4}"        
         echo 'Debug'
     fi    
 }
