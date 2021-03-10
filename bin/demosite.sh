@@ -70,6 +70,9 @@ create_db(){
 
 set_phpmemory(){
     if [ "${1}" = 'magento' ]; then 
+        echo 'Debug'
+        php -i | grep "memory_limit"
+        echo 'Debug'    
         PHP_INI=$(docker-compose exec litespeed su -c "php -i | grep 'Loaded Configuration File' | cut -d' ' -f5 " | tr -d '\r')
         PHP_MEMORY=$(docker-compose exec litespeed su -c "cat $PHP_INI | grep memory_limit" | tr -d '\r')
         docker-compose exec litespeed su -c "sed -i 's/^memory_limit.*/memory_limit = 755M/g' $PHP_INI"
@@ -77,7 +80,6 @@ set_phpmemory(){
         echo "PHP_MEMORY ${PHP_MEMORY}"
         echo 'Debug'
         php -i | grep "memory_limit"
-        echo "TEST_PHP_INI: ${TEST_PHP_INI}"
         echo 'Debug'
     fi    
 }
