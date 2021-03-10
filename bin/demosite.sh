@@ -75,6 +75,9 @@ set_phpmemory(){
         docker-compose exec litespeed su -c "sed -i 's/^memory_limit.*/memory_limit = 755M/g' $PHP_INI"
         echo PHP_INI $PHP_INI
         echo PHP_MEMORY $PHP_MEMORY
+        echo 'Debug'
+        docker-compose exec litespeed su -c "php -i | grep 'Loaded Configuration File' | cut -d' ' -f5 " | tr -d '\r'
+        echo 'Debug'
     fi    
 }
 
