@@ -82,6 +82,7 @@ set_phpmemory(){
         php -i | grep "memory_limit"
         AAA_INI4=$(docker-compose exec litespeed su -c "php -i | grep 'Loaded Configuration File' | cut -d' ' -f5 " | tr -d '\r')
         echo "pp4: ${AAA_INI4}"        
+        docker-compose exec litespeed su -c "php -i | grep 'Loaded Configuration File' | cut -d' ' -f5 " | tr -d '\r'
         echo 'Debug'
     fi    
 }
