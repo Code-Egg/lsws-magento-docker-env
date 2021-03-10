@@ -76,7 +76,7 @@ set_phpmemory(){
         echo PHP_INI $PHP_INI
         echo PHP_MEMORY $PHP_MEMORY
         echo 'Debug'
-        docker-compose exec litespeed su -c "php -i | grep 'Loaded Configuration File' | cut -d' ' -f5 " | tr -d '\r'
+        docker-compose exec -T litespeed su -c "php -i | grep 'Loaded Configuration File' | cut -d' ' -f5 " | tr -d '\r'
         echo 'Debug'
     fi    
 }
