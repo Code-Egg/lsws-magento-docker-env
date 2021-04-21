@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 source .env
-APP='magento'
+APP='prestashop'
 CONT_NAME='litespeed'
 DOC_FD=''
 EPACE='        '
@@ -144,7 +144,7 @@ while [ ! -z "${1}" ]; do
             APP='magento'
             ;;
         -[pP] | --prestashop)
-            APP='mprestashop'
+            APP='prestashop'
             ;;            
 		-[sS] | --sample)
             SAMPLE='-S'
