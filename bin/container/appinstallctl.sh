@@ -846,10 +846,12 @@ main(){
 		exit 0	
 	elif [ "${APP}" = 'prestashop' ] || [ "${APP}" = 'P' ]; then
 	    prevent_php
+		check_sql_native
         install_prestashop
 		change_owner
 		show_access
-		store_access		
+		store_access
+		exit 0		
 	else
 		echo "APP: ${APP} not support, exit!"
 		exit 1	
