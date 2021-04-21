@@ -769,7 +769,7 @@ install_prestashop(){
         unzip -q prestashop.zip
         php install/index_cli.php \
             --domain="${DOMAIN}" \
-            --db_server=127.0.0.1 \
+            --db_server=${DB_HOST} \
             --db_name=${SQL_DB} \
             --db_user=${SQL_USER} \
             --db_password=${SQL_PASS} \

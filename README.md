@@ -38,9 +38,7 @@ The docker image installs the following packages on your system:
 |PHP|[Latest version](http://rpms.litespeedtech.com/debian/)|
 |LiteSpeed Cache|[Latest from WordPress.org](https://wordpress.org/plugins/litespeed-cache/)|
 |ACME|[Latest from ACME official](https://github.com/acmesh-official/get.acme.sh)|
-|PrestaShop|[1.7](https://www.prestashop.com/en/versions)|
-|elasticsearch|[7.9.1](docker.elastic.co/elasticsearch/elasticsearch)|
-|WordPress|[Latest from WordPress](https://wordpress.org/download/)|
+|PrestaShop|[1.7.7.3](https://www.prestashop.com/en/versions)|
 |phpMyAdmin|[Latest from dockerhub](https://hub.docker.com/r/bitnami/phpmyadmin/)|
 
 ## Data Structure
@@ -107,14 +105,11 @@ We strongly recommend you set your personal password right away.
 bash bin/webadmin.sh my_password
 ```
 ### Starting a Demo Site
-After running the following command, you should be able to access the Magento + LiteMage Cache installation with the configured domain. By default the domain is http://localhost.
+After running the following command, you should be able to access the PrestaShop installation with the configured domain. By default the domain is http://localhost.
 ```
-bash bin/demosite.sh -M
+bash bin/demosite.sh -P
 ```
-or with Sample data installed
-```
-bash bin/demosite.sh -M -S
-```
+
 ### Creating a Domain and Virtual Host
 ```
 bash bin/domain.sh [-A, --add] example.com
