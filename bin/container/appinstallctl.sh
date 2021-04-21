@@ -764,6 +764,7 @@ install_ma_sample(){
 install_prestashop(){
     if [ ${app_skip} = 0 ]; then
         echoG 'Install Prestashop...'
+		get_db_pass ${DOMAIN}
         wget -q https://download.prestashop.com/download/releases/prestashop_${PS_VER}.zip
         unzip -q prestashop_${PS_VER}.zip; mv index.php /tmp/
         unzip -q prestashop.zip
