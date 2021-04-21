@@ -14,7 +14,9 @@ THEME='twentytwenty'
 LSDIR='/usr/local/lsws'
 MA_COMPOSER='/usr/local/bin/composer'
 MA_VER='2.4.2'
+PS_VER='1.7.7.3'
 EMAIL='test@example.com'
+PS_BACK_URL='admin'
 APP_ACCT=''
 APP_PASS=''
 MA_BACK_URL=''
@@ -759,24 +761,58 @@ install_ma_sample(){
     fi
 }
 
+install_prestashop(){
+    if [ ${app_skip} = 0 ]; then
+        echoG 'Install Prestashop...'
+        wget -q https://download.prestashop.com/download/releases/prestashop_${PS_VER}.zip
+        unzip -q prestashop_${PS_VER}.zip; mv index.php /tmp/
+        unzip -q prestashop.zip
+        php install/index_cli.php \
+            --domain="${DOMAIN}" \
+            --db_server=127.0.0.1 \
+            --db_name=${SQL_DB} \
+            --db_user=${SQL_USER} \
+            --db_password=${SQL_PASS} \
+            --email=${EMAIL} \
+            --password=${APP_PASS};
+    fi
+    mv install install.bk
+}    
+
 change_owner(){
 	    chown -R ${WWW_UID}:${WWW_GID} ${DEFAULT_VH_ROOT}/${DOMAIN}
 }
 
 store_access(){
-    cat << EOM > ${VH_ROOT}/.app_access
+	if [ "${APP}" = 'magento' ] || [ "${APP}" = 'M' ]; then 
+        cat << EOM > ${VH_ROOT}/.app_access
 Account: ${APP_ACCT}
 Password: ${APP_PASS}
 Admin_URL: ${MA_BACK_URL}
 EOM
+    elif [ "${APP}" = 'prestashop' ] || [ "${APP}" = 'P' ]; then
+        cat << EOM > ${VH_ROOT}/.app_access
+Account: ${EMAIL}
+Password: ${APP_PASS}
+Admin_URL: ${PS_BACK_URL}
+EOM
+    fi
 }
 
 show_access(){
-	echoG '----------------------------------------'
-	echoY "Account: ${APP_ACCT}"
-	echoY "Password: ${APP_PASS}"
-	echoY "Admin_URL: ${MA_BACK_URL}"
-	echoG '----------------------------------------'
+    if [ "${APP}" = 'magento' ] || [ "${APP}" = 'M' ]; then	
+		echoG '----------------------------------------'
+		echoY "Account: ${APP_ACCT}"
+		echoY "Password: ${APP_PASS}"
+		echoY "Admin_URL: ${MA_BACK_URL}"
+		echoG '----------------------------------------'
+	elif [ "${APP}" = 'prestashop' ] || [ "${APP}" = 'P' ]; then
+		echoG '----------------------------------------'
+		echoY "Account: ${EMAIL}"
+		echoY "Password: ${APP_PASS}"
+		echoY "Admin_URL: ${PS_BACK_URL}"
+		echoG '----------------------------------------'
+	fi	
 }
 
 main(){
@@ -808,6 +844,12 @@ main(){
 		show_access
 		store_access
 		exit 0	
+	elif [ "${APP}" = 'prestashop' ] || [ "${APP}" = 'P' ]; then
+	    prevent_php
+        install_prestashop
+		change_owner
+		show_access
+		store_access		
 	else
 		echo "APP: ${APP} not support, exit!"
 		exit 1	

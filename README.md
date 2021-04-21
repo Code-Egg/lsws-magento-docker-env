@@ -1,10 +1,10 @@
-# LiteSpeed WordPress Docker Container
+# LiteSpeed Docker Container
 [![Build Status](https://travis-ci.com/litespeedtech/lsws-magento-docker-env.svg?branch=master)](https://hub.docker.com/r/litespeedtech/litespeed)
 [![docker pulls](https://img.shields.io/docker/pulls/litespeedtech/litespeed?style=flat&color=blue)](https://hub.docker.com/r/litespeedtech/litespeed)
 [<img src="https://img.shields.io/badge/slack-LiteSpeed-blue.svg?logo=slack">](litespeedtech.com/slack) 
 [<img src="https://img.shields.io/twitter/follow/litespeedtech.svg?label=Follow&style=social">](https://twitter.com/litespeedtech)
 
-Install a Magento2.4 container with LiteSpeed stable version based on Ubuntu 18.04 Linux.
+Install a PrestaShop container with LiteSpeed stable version based on Ubuntu 20.04 Linux.
 
 ### Prerequisites
 1. [Install Docker](https://www.docker.com/)
@@ -32,13 +32,13 @@ The docker image installs the following packages on your system:
 
 |Component|Version|
 | :-------------: | :-------------: |
-|Linux|Ubuntu 18.04|
+|Linux|Ubuntu 20.04|
 |LiteSpeed|[Latest version](https://www.litespeedtech.com/products/litespeed-web-server/download)|
 |MariaDB|[Stable version: 10.3](https://hub.docker.com/_/mariadb)|
 |PHP|[Latest version](http://rpms.litespeedtech.com/debian/)|
 |LiteSpeed Cache|[Latest from WordPress.org](https://wordpress.org/plugins/litespeed-cache/)|
 |ACME|[Latest from ACME official](https://github.com/acmesh-official/get.acme.sh)|
-|Magento2|[2.4](https://devdocs.magento.com/guides/v2.4/release-notes/release-notes-2-4-0-open-source.html)|
+|PrestaShop|[1.7](https://www.prestashop.com/en/versions)|
 |elasticsearch|[7.9.1](docker.elastic.co/elasticsearch/elasticsearch)|
 |WordPress|[Latest from WordPress](https://wordpress.org/download/)|
 |phpMyAdmin|[Latest from dockerhub](https://hub.docker.com/r/bitnami/phpmyadmin/)|

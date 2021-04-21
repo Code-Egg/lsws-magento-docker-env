@@ -23,6 +23,8 @@ help_message(){
             echo "${EPACE}${EPACE}Example: lsws1clk.sh -M"
             echow '-M, --magento -S, --sample'
             echo "${EPACE}${EPACE}Example: lsws1clk.sh -M -S, to install sample data"
+            echow '-P, --prestashop'
+            echo "${EPACE}${EPACE}Example: lsws1clk.sh -P"            
             echow '-H, --help'
             echo "${EPACE}${EPACE}Display help and exit." 
             exit 0
@@ -105,6 +107,8 @@ install_packages(){
         docker-compose exec -T litespeed /bin/bash -c "pkginstallctl.sh --package composer"
         docker-compose exec -T litespeed /bin/bash -c "pkginstallctl.sh --package unzip"
         docker-compose exec -T litespeed /bin/bash -c "pkginstallctl.sh --package git"
+    elif [ "${1}" = 'prestashop' ]; then        
+        docker-compose exec -T litespeed /bin/bash -c "pkginstallctl.sh --package unzip"
     fi    
 }
 
@@ -139,6 +143,9 @@ while [ ! -z "${1}" ]; do
         -[mM] | --magento)
             APP='magento'
             ;;
+        -[pP] | --prestashop)
+            APP='mprestashop'
+            ;;            
 		-[sS] | --sample)
             SAMPLE='-S'
             ;;            

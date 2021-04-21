@@ -16,6 +16,7 @@ help_message(){
     echo "${EPACE}${EPACE}Example: appinstall.sh -A wordpress -D example.com"
     echo "${EPACE}${EPACE}Example: appinstall.sh -A magento -D example.com"
     echo "${EPACE}${EPACE}Example: appinstall.sh -A magento -S -D example.com"
+    echo "${EPACE}${EPACE}Example: appinstall.sh -A prestashop -D example.com"    
     echow '-H, --help'
     echo "${EPACE}${EPACE}Display help and exit."
     exit 0
@@ -53,6 +54,8 @@ install_packages(){
         docker-compose exec -T litespeed /bin/bash -c "pkginstallctl.sh --package composer"
         docker-compose exec -T litespeed /bin/bash -c "pkginstallctl.sh --package unzip"
         docker-compose exec -T litespeed /bin/bash -c "pkginstallctl.sh --package git"
+    elif [ "${1}" = 'prestashop' ]; then        
+        docker-compose exec -T litespeed /bin/bash -c "pkginstallctl.sh --package unzip"
     fi    
 }
 
