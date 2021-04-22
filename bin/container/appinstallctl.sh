@@ -780,6 +780,13 @@ install_prestashop(){
     mv install install.bk
 }    
 
+install_ps_cache(){
+    echoG '[Start] Install PrestaShop LSCache'
+    wget -q https://github.com/Code-Egg/lsws-prestashop-docker-env/tree/master/packages/prestashop/litespeedcache.zip
+    ./bin/console prestashop:module install litespeedcache.zip
+    echoG '[End] PrestaShop LSCach install'
+}    
+
 change_owner(){
 	    chown -R ${WWW_UID}:${WWW_GID} ${DEFAULT_VH_ROOT}/${DOMAIN}
 }
@@ -849,6 +856,7 @@ main(){
 	    prevent_php
 		check_sql_native
         install_prestashop
+		install_ps_cache
 		change_owner
 		show_access
 		store_access
