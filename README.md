@@ -1,5 +1,5 @@
 # LiteSpeed Docker Container
-[![Build Status](https://travis-ci.com/litespeedtech/lsws-magento-docker-env.svg?branch=master)](https://hub.docker.com/r/litespeedtech/litespeed)
+[![Build Status](https://github.com/Code-Egg/lsws-prestashop-docker-env/workflows/docker-build/badge.svg)](https://github.com/Code-Egg/lsws-prestashop-docker-env/actions/)
 [![docker pulls](https://img.shields.io/docker/pulls/litespeedtech/litespeed?style=flat&color=blue)](https://hub.docker.com/r/litespeedtech/litespeed)
 [<img src="https://img.shields.io/badge/slack-LiteSpeed-blue.svg?logo=slack">](litespeedtech.com/slack) 
 [<img src="https://img.shields.io/twitter/follow/litespeedtech.svg?label=Follow&style=social">](https://twitter.com/litespeedtech)
@@ -38,6 +38,7 @@ The docker image installs the following packages on your system:
 |PHP|[Latest version](http://rpms.litespeedtech.com/debian/)|
 |ACME|[Latest from ACME official](https://github.com/acmesh-official/get.acme.sh)|
 |PrestaShop|[1.7.7.3](https://www.prestashop.com/en/versions)|
+|LSCache|[Latest version](hhttps://www.litespeedtech.com/products/cache-plugins/prestashop-acceleration/download)|
 |phpMyAdmin|[Latest from dockerhub](https://hub.docker.com/r/bitnami/phpmyadmin/)|
 
 ## Data Structure
@@ -128,13 +129,13 @@ Use this command to specify your own names, substituting `user_name`, `my_passwo
 bash bin/database.sh [-D, --domain] example.com [-U, --user] USER_NAME [-P, --password] MY_PASS [-DB, --database] DATABASE_NAME
 ```
 ### Installing a PrestaShop Site
-To preconfigure the Magento2, run the `database.sh` script for your domain, before you use the following command to install Magento:
+To preconfigure the PrestaShop, run the `database.sh` script for your domain, before you use the following command to install PrestaShop:
 ```
 ./bin/appinstall.sh [-A, --app] prestashop [-D, --domain] example.com
 ```
 
-### Installing PrestaShop LSCache plugin
-Follow the [installation doc](https://docs.litespeedtech.com/lscache/lscps/installation/)
+### Enable PrestaShop LSCache plugin cache settings
+Enable the module by navigating to LiteSpeed Cache > Settings and setting Enable LiteSpeed Cache to `Yes`
 
 ### Installing ACME 
 We need to run the ACME installation command the **first time only**. 
