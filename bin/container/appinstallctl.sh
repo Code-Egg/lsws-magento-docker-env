@@ -782,7 +782,7 @@ install_prestashop(){
 
 install_ps_cache(){
     echoG '[Start] Install PrestaShop LSCache'
-    wget -q -O litespeedcache.zip https://github.com/Code-Egg/lscache_prestashop/archive/refs/heads/master.zip
+    wget -q https://www.litespeedtech.com/packages/prestashop/bk/litespeedcache.zip
     ./bin/console prestashop:module install litespeedcache.zip
     echoG '[End] PrestaShop LSCach install'
 }    
