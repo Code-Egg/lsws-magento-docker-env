@@ -40,14 +40,3 @@ services:
     environment:
         DATABASE_HOST: mysql
     restart: always    
-  #elasticsearch:
-  #  image: docker.elastic.co/elasticsearch/elasticsearch:7.9.1
-  #  environment:
-  #    - discovery.type=single-node
-  #  ports:
-  #    - 9200:9200
-  #  volumes:
-  #    - esdata:/usr/share/elasticsearch/data
-  #  restart: always  
-#volumes:
-#  esdata:

@@ -19,10 +19,6 @@ help_message(){
             echo -e "\033[1mOPTIONS\033[0m"
             echow '-W, --wordpress'
             echo "${EPACE}${EPACE}Example: lsws1clk.sh -W. If no input, script will still install wordpress by default"
-            echow '-M, --magento'
-            echo "${EPACE}${EPACE}Example: lsws1clk.sh -M"
-            echow '-M, --magento -S, --sample'
-            echo "${EPACE}${EPACE}Example: lsws1clk.sh -M -S, to install sample data"
             echow '-P, --prestashop'
             echo "${EPACE}${EPACE}Example: lsws1clk.sh -P"            
             echow '-H, --help'
@@ -139,9 +135,6 @@ while [ ! -z "${1}" ]; do
             ;;
         -[wW] | --wordpress)
             APP='wordpress'
-            ;;
-        -[mM] | --magento)
-            APP='magento'
             ;;
         -[pP] | --prestashop)
             APP='prestashop'

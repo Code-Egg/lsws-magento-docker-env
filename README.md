@@ -17,7 +17,7 @@ Feel free to check [Docker hub Tag page](https://hub.docker.com/repository/docke
 ## Installation
 Clone this repository or copy the files from this repository into a new folder:
 ```
-git clone https://github.com/litespeedtech/lsws-magento-docker-env.git
+git clone https://github.com/Code-Egg/lsws-prestashop-docker-env.git
 ```
 Open a terminal, `cd` to the folder in which `docker-compose.yml` is saved, and run:
 ```
@@ -34,9 +34,8 @@ The docker image installs the following packages on your system:
 | :-------------: | :-------------: |
 |Linux|Ubuntu 20.04|
 |LiteSpeed|[Latest version](https://www.litespeedtech.com/products/litespeed-web-server/download)|
-|MariaDB|[Stable version: 10.3](https://hub.docker.com/_/mariadb)|
+|MariaDB|[Stable version: 10.5](https://hub.docker.com/_/mariadb)|
 |PHP|[Latest version](http://rpms.litespeedtech.com/debian/)|
-|LiteSpeed Cache|[Latest from WordPress.org](https://wordpress.org/plugins/litespeed-cache/)|
 |ACME|[Latest from ACME official](https://github.com/acmesh-official/get.acme.sh)|
 |PrestaShop|[1.7.7.3](https://www.prestashop.com/en/versions)|
 |phpMyAdmin|[Latest from dockerhub](https://hub.docker.com/r/bitnami/phpmyadmin/)|
@@ -128,20 +127,15 @@ Use this command to specify your own names, substituting `user_name`, `my_passwo
 ```
 bash bin/database.sh [-D, --domain] example.com [-U, --user] USER_NAME [-P, --password] MY_PASS [-DB, --database] DATABASE_NAME
 ```
-### Installing a Magento Site
+### Installing a PrestaShop Site
 To preconfigure the Magento2, run the `database.sh` script for your domain, before you use the following command to install Magento:
 ```
-./bin/appinstall.sh [-A, --app] magento [-D, --domain] example.com
+./bin/appinstall.sh [-A, --app] prestashop [-D, --domain] example.com
 ```
-We can also install with sample data
-```
-./bin/appinstall.sh [-A, --app] magento [-D, --domain] example.com [-S, --sample]
-```
-### Installing a WordPress Site
-To preconfigure the `wp-config` file, run the `database.sh` script for your domain, before you use the following command to install WordPress:
-```
-./bin/appinstall.sh [-A, --app] wordpress [-D, --domain] example.com
-```
+
+### Installing PrestaShop LSCache plugin
+Follow the [installation doc](https://docs.litespeedtech.com/lscache/lscps/installation/)
+
 ### Installing ACME 
 We need to run the ACME installation command the **first time only**. 
 With email notification:

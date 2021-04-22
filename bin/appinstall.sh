@@ -14,8 +14,6 @@ help_message(){
     echo -e "\033[1mOPTIONS\033[0m"
     echow '-A, --app [app_name] -D, --domain [DOMAIN_NAME]'
     echo "${EPACE}${EPACE}Example: appinstall.sh -A wordpress -D example.com"
-    echo "${EPACE}${EPACE}Example: appinstall.sh -A magento -D example.com"
-    echo "${EPACE}${EPACE}Example: appinstall.sh -A magento -S -D example.com"
     echo "${EPACE}${EPACE}Example: appinstall.sh -A prestashop -D example.com"    
     echow '-H, --help'
     echo "${EPACE}${EPACE}Display help and exit."
